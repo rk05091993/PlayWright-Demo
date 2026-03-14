@@ -17,5 +17,5 @@ test('title test', async ({ page }) => {
 test('search test', async ({ page }) => {
     await page.locator('#small-searchterms').fill("laptop");  // fill the text in search box
     await page.locator("input[value='Search']").click();      // click on the button
-    await expect.soft(page.locator('h2 a1').nth(0)).toContainText("laptop", { ignoreCase: true });
+    await expect.soft(page.locator('h2 a').nth(0)).toContainText("laptop", { ignoreCase: true });
 });
