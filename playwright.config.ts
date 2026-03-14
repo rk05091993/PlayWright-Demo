@@ -14,7 +14,8 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: false,
+   fullyParallel:true, //It means test will run in parallel mode its by default
+  //fullyParallel:false,  //done by roshan It means test will run on serial mode ie sequence mode
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
 
@@ -28,8 +29,43 @@ export default defineConfig({
 
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
+
+  //workers:1, //for serial exceution done by roshan
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  //reporter: 'html',
+
+//reporter: [['html', { open:'on-failure' }]],//done by roshan
+//reporter: [['html', { open: 'never', outputFolder: 'my-report' }]],//dpne by roshan
+
+//reporter: 'list',
+// reporter: 'html',
+/* reporter: [['html', { open: 'always', outputFolder: 'html-report' }],
+  ['list'],
+  ['line'],
+  ['dot']
+], */
+
+//reporter: [['json', { outputFile: 'results.json' }]],
+
+
+
+//allure Reporter
+
+/*  reporter: [
+        ['allure-playwright', {
+            detail: true,
+            outputFolder: 'allure-results',
+            suiteTitle: true,
+        }],
+        ['list']
+    ], */
+
+
+   //My custom reports
+  reporter: [
+        ['./my-customreports.ts']  // ✅ apne reporter file ka path
+    ],
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
      video: 'retain-on-failure',
@@ -39,7 +75,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace:'off',
+    trace:'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
@@ -49,7 +85,7 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-  /*   {
+    {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
@@ -58,7 +94,7 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
- */
+
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',

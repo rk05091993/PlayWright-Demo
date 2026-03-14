@@ -9,16 +9,16 @@ const timestamp=Date.now();//----------------------1
 
 //page screenshot
 //await page.screenshot({path:'screenshots/homepage.png'})
-//await page.screenshot({path:'screenshots/'+'homepage'+timestamp+'.png'})//--------------------1
+await page.screenshot({path:'screenshots/'+'homepage'+timestamp+'.png'})//--------------------1
 
 //full page screenshot
-//await page.screenshot({path:'screenshots/'+'fullpage'+timestamp+'.png', fullPage:true})
+await page.screenshot({path:'screenshots/'+'fullpage'+timestamp+'.png', fullPage:true})
 
 //element screenshot
 //const logo=page.locator("img[alt='Tricentis Demo Web Shop']");
 //logo.screenshot({path:'screenshots/'+'logo'+timestamp+'.png'})
 //or
-//await page.locator("img[alt='Tricentis Demo Web Shop']").screenshot({path:'screenshots/'+'logo'+timestamp+'.png'})
+await page.locator("img[alt='Tricentis Demo Web Shop']").screenshot({path:'screenshots/'+'logo'+timestamp+'.png'})
 
 
 //featured products
