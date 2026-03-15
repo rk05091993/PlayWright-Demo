@@ -34,7 +34,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   //reporter: 'html',
 
-//reporter: [['html', { open:'on-failure' }]],//done by roshan
+reporter: [['html', { open:'on-failure' }]],//done by roshan
 //reporter: [['html', { open: 'never', outputFolder: 'my-report' }]],//dpne by roshan
 
 //reporter: 'list',
@@ -58,13 +58,13 @@ export default defineConfig({
             suiteTitle: true,
         }],
         ['list']
-    ], */
-
+    ],
+ */
 
    //My custom reports
-  reporter: [
+ /*  reporter: [
         ['./my-customreports.ts']  // ✅ apne reporter file ka path
-    ],
+    ], */
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -84,7 +84,7 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-
+/* 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
@@ -94,7 +94,7 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-
+ */
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
