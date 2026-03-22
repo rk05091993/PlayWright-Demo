@@ -73,7 +73,7 @@ reporter: [['html', { open:'on-failure' }]],//done by roshan
   
     /* Base URL to use in actions like `await page.goto('')`. */
     
-    baseURL: 'https://restful-booker.herokuapp.com',//api test url
+   // baseURL: 'https://restful-booker.herokuapp.com',//api test url
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace:'retain-on-failure',
